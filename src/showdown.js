@@ -1096,6 +1096,8 @@ var _DoCodeSpans = function(text) {
 	return text;
 }
 
+// Modified by Nil Gradisnik <nil@layer.com>
+// NOT escaping html chars because of highlight.js
 var _EncodeCode = function(text) {
 //
 // Encode/escape certain characters inside Markdown code runs.
@@ -1104,11 +1106,11 @@ var _EncodeCode = function(text) {
 //
 	// Encode all ampersands; HTML entities are not
 	// entities within a Markdown code span.
-	text = text.replace(/&/g,"&amp;");
+	/*text = text.replace(/&/g,"&amp;");
 
 	// Do the angle bracket song and dance:
 	text = text.replace(/</g,"&lt;");
-	text = text.replace(/>/g,"&gt;");
+	text = text.replace(/>/g,"&gt;");*/
 
 	// Now, escape characters that are magic in Markdown:
 	text = escapeCharacters(text,"\*_{}[]\\",false);
